@@ -1,0 +1,67 @@
+AT NO:A-");
+     scanf("%d",&n);
+            }
+     printf("\t\n\n*YOUR CANCELLATION IS SUCCESSFULL*\n\n\t");
+     break;
+  default:
+     printf("\t\nYOU HAVE ENTERED A INVALID CHOICE\n");
+     printf("\t PLEASE ENTER YOUR CHOICE FROM 1-2\n");
+     goto CANCEL_CASE;
+     break;
+    }
+             break;
+             goto MENU;
+ case 3: 
+
+          printf("\t\nPLEASE ENTER YOUR NAME-");
+         scanf("%s",username);
+         fp=fopen("Passengers.details.txt","r");
+         if(fp!=NULL)
+         {
+         while(fscanf(fp,"%s%d%d%s%s%s%s%d%d",username,&adharno,&phno,source,desti,flight,time,&date,&nofseats) != EOF)
+        {
+
+    printf("\t%s\n",username);
+    printf("\t%d\n",adharno);
+    printf("\t%d\n",phno);
+    printf("\t%s\n",source);
+    printf("\t%s\n",desti);
+    printf("\t%s\n",flight);
+    printf("\t%s\n",time);
+    printf("\t%d\n",date);
+    printf("\t%d\n",nofseats);
+    } 
+   }
+   else 
+   printf("\t\nERROR IN OPENING THE FILE\n");
+   fclose(fp);
+         break;
+         goto MENU;
+
+ case 4:
+        display();
+       break;
+ case 5:
+ break;
+ default:
+ printf("\t YOU HAVE ENTERED A INVALID CHOICE\n");
+ printf("\t PLEASE ENTER THE CHOICE FROM 1-5\n");
+ goto MENU; 
+ break;       
+    }
+    return 0;
+}
+    char display()
+    {
+     FILE *fp;
+     fp=fopen("Passengers.details.txt","r");
+     if(fp!= NULL)
+     {
+      char c;
+      while ((c=fgetc(fp)) != EOF)
+      putchar(c);
+      fclose(fp);
+       }
+ else 
+ printf("\tERROR IN OPENING THE FILE\n");
+    }
